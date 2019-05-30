@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block cartas %}
+	<div class="cartas">
+		<div class="centrar">	
+			<h1><strong>Cartas Pokemon</strong></h1>
+		</div>		
+		<div>
+		{% for dato in listaimagenes %}
+			<div>					
+				<a href={{dato}}><img src={{dato}} width="160" height="240" alt=""/></a>			
+			</div>				
+		{% endfor %}
+		</div>
+		<div class="centrar">
+		{% if id==1 %}	
+			<form action="/pokemontcg/{{id+1}}">
+				<input type="submit" value="Siguiente"/>
+			</form>	
+		{% else %}
+			<div class="centrar">			
+				<form action="/pokemontcg/{{id-1}}">
+					<input type="submit" value="Anterior"/>
+				</form>
+			</div>
+			<div row="justify-content-right">				
+				<form action="/pokemontcg/{{id+1}}">
+					<input type="submit" value="Siguiente"/>
+				</form>
+			</div>	
+		{% endif %}
+		</div>	
+	</div>
+{% endblock %}

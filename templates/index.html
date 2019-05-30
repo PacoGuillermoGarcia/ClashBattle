@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Fotofolium 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20120513
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>ClashPokBattle</title>
+<link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
+<link href="../static/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link rel="icon" href="../static/images/favicon.png" type="image/x-icon"/>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.poptrox-1.0.js"></script>
+</head>
+<body>
+<div id="header" class="container">
+	<div id="logo">
+		<h1><a href="#">ClashPokBattle</a></h1>
+	</div>
+</div>
+<div id="menu">
+	<ul>
+		<li><a href="/">Inicio</a></li>
+		<li><a href="/pokemontcg">PokemonTCG</a></li>
+		<li><a href="/clash">Clash Royale</a></li>
+	</ul>
+</div>
+<!-- end #header -->
+<div id="splash"><img src="../static/images/clashpokemon.png" width="780" height="413" alt="" /></div>
+<div id="wrapper">
+	<div id="page">
+		<div id="box1">
+			<p> Esto es <strong>ClashPokBattle</strong>, una aplicación que te permite ver tus estadisticas de clash royale,las estadisticas de clanes y un ranking por regiones,ademas te permitira buscar cartas del juego Pokemon Trading Card Game</p>
+		</div>
+	</div>
+</div>
+<div id="headerwrap">			
+	<div class="container">			
+		<div class="row centered">
+			{% block cartas %}{% endblock %}
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<p>&copy; Realizada por: Francisco Guillermo García</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
