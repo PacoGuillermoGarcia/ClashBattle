@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block filtro %}
+	<div class="cartas">
+		<div class="centrar">
+			<h1><strong>Cartas Pokemon</strong></h1>
+			<br/>
+		</div>	
+		<div>	
+		{% for dato in listaimagenes %}
+			<div>					
+				<a href={{dato}}><img src={{dato}} width="160" height="240" alt=""/></a>			
+			</div>				
+		{% endfor %}
+		</div>
+	</div>
+{% endblock %}

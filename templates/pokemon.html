@@ -1,8 +1,13 @@
 {% extends "index.html" %}
 {% block cartas %}
 	<div class="cartas">
-		<div class="centrar">	
+		<div class="centrar">
 			<h1><strong>Cartas Pokemon</strong></h1>
+			<br/>
+			<form action="/pokemontcg/filtro" method='POST'>
+			<p>Filtro: <input type="text" name="Carta" autofocus required/></p>
+			<input type="submit" value="Enviar"/>
+			</form>	
 		</div>		
 		<div>
 		{% for dato in listaimagenes %}
@@ -13,20 +18,12 @@
 		</div>
 		<div class="centrar">
 		{% if id==1 %}	
-			<form action="/pokemontcg/{{id+1}}">
-				<input type="submit" value="Siguiente"/>
-			</form>	
+		<a href="/pokemontcg/{{id+1}}"><button>Siguiente</button></a>
+		{% elif id > 1 and id < 233 %}
+		<a href="/pokemontcg/{{id-1}}"><button>Anterior</button></a>
+		<a href="/pokemontcg/{{id+1}}"><button>Siguiente</button></a>
 		{% else %}
-			<div class="centrar">			
-				<form action="/pokemontcg/{{id-1}}">
-					<input type="submit" value="Anterior"/>
-				</form>
-			</div>
-			<div row="justify-content-right">				
-				<form action="/pokemontcg/{{id+1}}">
-					<input type="submit" value="Siguiente"/>
-				</form>
-			</div>	
+		<a href="/pokemontcg/{{id-1}}"><button>Anterior</button></a>
 		{% endif %}
 		</div>	
 	</div>
