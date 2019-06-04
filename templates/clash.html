@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block jugador %}
+	<div class="centrar">
+		<h1><strong>Estadisticas del jugador</strong></h1>
+		<br/>
+	</div>	
+	<div class="centrar">	
+		<form action="/clash/jugador" method='POST'>
+			<p>Tag Jugador: <input type="text" name="Nombre" autofocus required/><input type="submit" value="Enviar"/></p>
+		</form>
+	</div>
+{% endblock %}

@@ -1,7 +1,12 @@
 from flask import Flask, render_template, request, abort
 import requests
+import os
+import json
 app = Flask(__name__)
 URL_BASE="https://api.pokemontcg.io/v1/"
+URL_BASE2="https://api.clashroyale.com/v1/"
+key=os.environ["keyclash"]
+
 
 @app.route('/',methods=['GET'])
 def inicio():
@@ -35,6 +40,20 @@ def filtro():
 	else:
 		abort(404)
 
+@app.route('/clash',methods=['GET'])
+def clash():
+	return render_template('clash.html')
 
+@app.route('/clash/jugador',methods=['GET','POST'])
+def tag():
+	h={"Accept":"application/json","authorization":"Bearer %s"%key}
+	datos=request.form.get("Nombre")
+	datos2=datos.replace("#","%")
+	r=requests.get(URL_BASE2+"players/"+datos2,headers=h)
+	if r.status_code==200:
+		doc=r.json()
+		return render_template("tag.html",doc=doc)
+	else:
+		abort(404)
 
 app.run('0.0.0.0',debug=True)
