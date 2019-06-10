@@ -52,7 +52,10 @@ def tag():
 	r=requests.get(URL_BASE2+"players/"+datos2,headers=h)
 	if r.status_code==200:
 		doc=r.json()
-		return render_template("tag.html",doc=doc)
+		listamazo=[]
+		for i in doc["currentDeck"]:
+			listamazo.append(i["iconUrls"]["medium"])
+		return render_template("tag.html",doc=doc,listamazo=listamazo)
 	else:
 		abort(404)
 

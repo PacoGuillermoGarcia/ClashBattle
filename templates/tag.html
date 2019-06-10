@@ -4,6 +4,19 @@
 		<h1><strong>Estadisticas del jugador</strong></h1>
 		<br/>
 		<h3>Nombre: {{doc["name"]}}</h3>
-		<h3>
-	</div>	
+		<h3>Trofeos: {{doc["trophies"]}}</h3>
+		<h3>Trofeos maximos: {{doc["bestTrophies"]}}</h3>
+		<h3>Victorias: {{doc["wins"]}}</h3>
+		<h3>Derrotas: {{doc["losses"]}}</h3>
+	</div>
+	<div class="cartas">
+		<h3>Mazo:</h3>	
+		<div>
+		{% for dato in listamazo %}
+			<div>					
+				<a href={{dato}}><img src={{dato}} width="160" height="240" alt=""/></a>			
+			</div>		
+		{% endfor %}
+		</div>
+	</div>
 {% endblock %}
