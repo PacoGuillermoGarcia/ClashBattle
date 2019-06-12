@@ -8,5 +8,24 @@
 		<form action="/clash/jugador" method='POST'>
 			<p>Tag Jugador: <input type="text" name="Nombre" autofocus required/><input type="submit" value="Enviar"/></p>
 		</form>
+		<br/>
 	</div>
+	<div class="centrar">
+		<h1><strong>Buscador de clanes</strong></h1>
+		<br/>
+	</div>
+	<div class="centrar">
+		<form action="/clash/clan" method='POST'>
+			<p>Nombre de clan: <input type="text" name="Clan" autofocus required/><input type="submit" value="Enviar"/></p>
+		</form>
+		<br/>
+	</div>
+	<div class="centrar">
+		<h1><strong>TOP 25</strong></h1>
+		<br/>
+		<form action="/clash/ranking" method='POST'>
+			<p>País(En Ingles): <input type="text" name="Ranking" autofocus required/><input type="submit" value="Enviar"/></p>
+		</form>
+	</div>
+
 {% endblock %}

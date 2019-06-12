@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block rank %}
+	<div class="centrar">
+		<h2>TOP 25 de {{pais}}</h2>
+		<br/>
+		<br/>
+		<br/>
+		{% for dato in doc2["items"] %}
+			<h1><strong>Rank {{dato["rank"]}}</strong></h1>
+			<h3>Nombre: {{dato["name"]}}</h3>
+			<h3>Tag: {{dato["tag"]}}</h3>
+			<h3>Nivel: {{dato["expLevel"]}}</h3>
+			<h3>Trofeos: {{dato["trophies"]}}</h3>
+			<h3>Arena: {{dato["arena"]["name"]}}</h3>
+			<br/>
+			<br/>
+			<br/>
+		{% endfor %}
+	</div>
+
+{% endblock %}

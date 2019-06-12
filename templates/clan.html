@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block clan %}
+	<div class="centrar">
+		<h2><strong>Estadisticas de clanes</strong></h1>
+		<br/>
+	</div>
+		{% for dato in listaclanes %}
+			<div class="centrar">	
+				<h1><strong>Nombre: {{dato["name"]}}</strong></h3>
+				<h3>Tag: {{dato["tag"]}}</h3>	
+				<h3>Numero de Miembros: {{dato["members"]}}</h3>
+				<h3>Tipo: {{dato["type"]}}</h3>
+				<h3>Trofeos requeridos: {{dato["requiredTrophies"]}}</h3>
+				<h3>Localización: {{dato["location"]["name"]}}</h3>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+			</div>	
+		{% endfor %}
+{% endblock %}

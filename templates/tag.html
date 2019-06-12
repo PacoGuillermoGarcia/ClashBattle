@@ -14,8 +14,9 @@
 		<div>
 		{% for dato in listamazo %}
 			<div>					
-				<a href={{dato}}><img src={{dato}} width="160" height="240" alt=""/></a>			
-			</div>		
+				<a href={{dato['imagen']}}><img src={{dato['imagen']}} width="100" height="150" alt=""/></a>
+				<h3>{{dato['nombre']}}</h3>
+			</div>			
 		{% endfor %}
 		</div>
 	</div>
