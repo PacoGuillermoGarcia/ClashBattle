@@ -65,7 +65,7 @@ def tag():
 
 @app.route('/clash/clan',methods=['GET','POST'])
 def clan():
-	h={"Accept":"application/json","authorization":"Bearer %s"%key}
+	h={"Accept":"application/json","authorization":"Bearer "+key}
 	datos=request.form.get("Clan")
 	payload={"name": datos}
 	r=requests.get(URL_BASE2+"clans",headers=h,params=payload)
