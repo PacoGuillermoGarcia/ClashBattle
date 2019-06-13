@@ -8,6 +8,7 @@ URL_BASE2="https://api.clashroyale.com/v1/"
 key1=os.environ["keyclash"]
 key2=os.environ["keyclash2"]
 key3=os.environ["keyclash3"]
+key4=os.environ["keyclash4"]
 
 @app.route('/',methods=['GET'])
 def inicio():
@@ -48,7 +49,7 @@ def clash():
 
 @app.route('/clash/jugador',methods=['GET','POST'])
 def tag():
-	keys=[key1,key2,key3]
+	keys=[key1,key2,key3,key4]
 	for k in keys:
 		h={"Accept":"application/json","authorization":"Bearer %s"%k}
 		datos=request.form.get("Nombre")
@@ -70,7 +71,7 @@ def tag():
 
 @app.route('/clash/clan',methods=['GET','POST'])
 def clan():
-	keys=[key1,key2,key3]
+	keys=[key1,key2,key3,key4]
 	for k in keys:
 		h={"Accept":"application/json","authorization":"Bearer %s"%k}
 		datos=request.form.get("Clan")
@@ -90,7 +91,7 @@ def clan():
 
 @app.route('/clash/ranking',methods=['GET','POST'])
 def rank():
-	keys=[key1,key2,key3]
+	keys=[key1,key2,key3,key4]
 	for k in keys:
 		h={"Accept":"application/json","authorization":"Bearer %s"%k}
 		datos=request.form.get("Ranking")
