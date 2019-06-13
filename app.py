@@ -47,6 +47,7 @@ def clash():
 
 @app.route('/clash/jugador',methods=['GET','POST'])
 def tag():
+	print(key)
 	h={"Accept":"application/json","authorization":"Bearer %s"%key}
 	datos=request.form.get("Nombre")
 	datos2=datos.replace("#","%")
