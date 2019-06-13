@@ -49,7 +49,7 @@ def clash():
 def tag():
 	keys=[key1,key2]
 	for k in keys:
-		h={"Accept":"application/json","authorization":"Bearer %s"%key}
+		h={"Accept":"application/json","authorization":"Bearer %s"%k}
 		datos=request.form.get("Nombre")
 		datos2=datos.replace("#","%")
 		r=requests.get(URL_BASE2+"players/"+datos2,headers=h)
