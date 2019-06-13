@@ -5,8 +5,8 @@ import json
 app = Flask(__name__)
 URL_BASE="https://api.pokemontcg.io/v1/"
 URL_BASE2="https://api.clashroyale.com/v1/"
-key=os.environ["keyclash"]
-
+key1=os.environ["keyclash"]
+key2=os.environ["keyclash2"]
 
 @app.route('/',methods=['GET'])
 def inicio():
@@ -47,11 +47,14 @@ def clash():
 
 @app.route('/clash/jugador',methods=['GET','POST'])
 def tag():
-	print(key)
-	h={"Accept":"application/json","authorization":"Bearer %s"%key}
-	datos=request.form.get("Nombre")
-	datos2=datos.replace("#","%")
-	r=requests.get(URL_BASE2+"players/"+datos2,headers=h)
+	keys=[key1,key2]
+	for k in keys:
+		h={"Accept":"application/json","authorization":"Bearer %s"%key}
+		datos=request.form.get("Nombre")
+		datos2=datos.replace("#","%")
+		r=requests.get(URL_BASE2+"players/"+datos2,headers=h)
+		if r.status_code==200:
+			break
 	if r.status_code==200:
 		doc=r.json()
 		diccarta={}
@@ -66,10 +69,14 @@ def tag():
 
 @app.route('/clash/clan',methods=['GET','POST'])
 def clan():
-	h={"Accept":"application/json","authorization":"Bearer %s"%key}
-	datos=request.form.get("Clan")
-	payload={"name": datos}
-	r=requests.get(URL_BASE2+"clans",headers=h,params=payload)
+	keys=[key1,key2]
+	for k in keys:
+		h={"Accept":"application/json","authorization":"Bearer %s"%k}
+		datos=request.form.get("Clan")
+		payload={"name": datos}
+		r=requests.get(URL_BASE2+"clans",headers=h,params=payload)
+		if r.status_code==200:
+			break
 	if r.status_code==200:
 		doc=r.json()
 		listaclanes=[]
@@ -82,9 +89,13 @@ def clan():
 
 @app.route('/clash/ranking',methods=['GET','POST'])
 def rank():
-	h={"Accept":"application/json","authorization":"Bearer %s"%key}
-	datos=request.form.get("Ranking")
-	r=requests.get(URL_BASE2+"locations",headers=h)
+	keys=[key1,key2]
+	for k in keys:
+		h={"Accept":"application/json","authorization":"Bearer %s"%k}
+		datos=request.form.get("Ranking")
+		r=requests.get(URL_BASE2+"locations",headers=h)
+		if r.status_code==200:
+			break
 	if r.status_code==200:
 		doc=r.json()
 		for i in doc["items"]:
