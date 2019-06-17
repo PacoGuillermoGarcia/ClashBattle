@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 URL_BASE="https://api.pokemontcg.io/v1/"
 URL_BASE2="https://api.clashroyale.com/v1/"
-key1=os.environ["keyclash"]
+key=os.environ["keyclash"]
 
 @app.route('/',methods=['GET'])
 def inicio():
@@ -100,5 +100,4 @@ def rank():
 	else:
 		abort(404)	
 if __name__ == '__main__':
-	port=os.environ["PORT"]
-app.run('0.0.0.0',int(port),debug=True)
+app.run(debug=True)
