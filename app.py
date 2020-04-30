@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 URL_BASE="https://api.pokemontcg.io/v1/"
 URL_BASE2="https://api.clashroyale.com/v1/"
-key=os.environ["keyclash"]
+key="asdasd"
 
 @app.route('/',methods=['GET'])
 def inicio():
